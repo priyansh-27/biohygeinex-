@@ -1,0 +1,1441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoWaste - Smart Sanitary Waste Management</title>
+    <link rel="stylesheet" href="SIH.css">
+    
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h1>BioHygineX</h1>
+                        <span>Smart Management</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="nav-desktop">
+                    <button class="nav-btn active" onclick="showSection('home')">
+                        <i class="fas fa-home"></i> Home
+                    </button>
+                    <button class="nav-btn" onclick="showSection('truck-tracking')">
+                        <i class="fas fa-truck"></i> Track Trucks
+                    </button>
+                    <button class="nav-btn" onclick="showSection('sanitary')">
+                        <i class="fas fa-hand-holding-heart"></i> Sanitary
+                    </button>
+                    <button class="nav-btn" onclick="showSection('medicine')">
+                        <i class="fas fa-pills"></i> Medicine
+                    </button>
+                    <button class="nav-btn" onclick="showSection('rewards')">
+                        <i class="fas fa-gift"></i> Rewards
+                    </button>
+                    <button class="nav-btn" onclick="showSection('education')">
+                        <i class="fas fa-book"></i> Education
+                    </button>
+                </nav>
+
+                <!-- User Section -->
+                <div class="user-section">
+                    <div class="user-info" id="userInfo" style="display: none;">
+                        <div class="notification-bell">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-count">3</span>
+                        </div>
+                        <div class="user-profile">
+                            <i class="fas fa-user"></i>
+                            <span id="userName">John Doe</span>
+                            <span class="user-points" id="userPoints">250 pts</span>
+                        </div>
+                    </div>
+                    <button class="login-btn" id="loginBtn" onclick="toggleLogin()">Login</button>
+                    <button class="menu-toggle" onclick="toggleMobileMenu()">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <nav class="nav-mobile" id="mobileNav">
+                <button class="nav-btn" onclick="showSection('home')">
+                    <i class="fas fa-home"></i> Home
+                </button>
+                <button class="nav-btn" onclick="showSection('truck-tracking')">
+                    <i class="fas fa-truck"></i> Track Trucks
+                </button>
+                <button class="nav-btn" onclick="showSection('sanitary')">
+                    <i class="fas fa-hand-holding-heart"></i> Sanitary
+                </button>
+                <button class="nav-btn" onclick="showSection('medicine')">
+                    <i class="fas fa-pills"></i> Medicine
+                </button>
+                <button class="nav-btn" onclick="showSection('rewards')">
+                    <i class="fas fa-gift"></i> Rewards
+                </button>
+                <button class="nav-btn" onclick="showSection('education')">
+                    <i class="fas fa-book"></i> Education
+                </button>
+                <button class="nav-btn" onclick="showSection('notifications')">
+                    <i class="fas fa-bell"></i> Notifications
+                </button>
+                <button class="nav-btn" onclick="showSection('analytics')">
+                    <i class="fas fa-chart-bar"></i> Analytics
+                </button>
+                <button class="nav-btn" onclick="showSection('help')">
+                    <i class="fas fa-question-circle"></i> Help
+                </button>
+                <button class="nav-btn" onclick="showSection('complaints')">
+                    <i class="fas fa-comment-alt"></i> Complaints
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Home Section -->
+        <section id="home" class="section active">
+            <div class="hero">
+                <div class="container">
+                    <div class="hero-content">
+                        <div class="hero-icon">
+                            <i class="fas fa-recycle"></i>
+                        </div>
+                        <h1 class="hero-title">Smart Sanitary Waste <span>Management</span></h1>
+                        <p class="hero-description">
+                            Revolutionary QR-based tracking system that rewards responsible waste disposal 
+                            while protecting our environment. Join thousands of users making a difference.
+                        </p>
+                        
+                        <div class="user-welcome" id="userWelcome" style="display: none;">
+                            <div class="welcome-card">
+                                <i class="fas fa-award"></i>
+                                <div>
+                                    <p>Welcome back, <span id="welcomeName">John</span>!</p>
+                                    <p class="points-display"><span id="welcomePoints">250</span> Points</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button class="cta-btn" id="getStartedBtn" onclick="toggleLogin()">Get Started Today</button>
+                    </div>
+
+                    <!-- Stats Section -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <h3>12.5K kg</h3>
+                            <p>Waste Collected</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>2,847</h3>
+                            <p>Active Users</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>45.2K</h3>
+                            <p>Points Distributed</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>8.7 tons</h3>
+                            <p>CO₂ Saved</p>
+                        </div>
+                    </div>
+
+                    <!-- Features Grid -->
+                    <div class="features-grid">
+                        <div class="feature-card" onclick="showSection('truck-tracking')">
+                            <div class="feature-icon blue">
+                                <i class="fas fa-truck"></i>
+                            </div>
+                            <h3>Live Truck Tracking</h3>
+                            <p>Track waste collection trucks in real-time for your area</p>
+                        </div>
+                        <div class="feature-card" onclick="showSection('sanitary')">
+                            <div class="feature-icon pink">
+                                <i class="fas fa-qrcode"></i>
+                            </div>
+                            <h3>Sanitary Disposal</h3>
+                            <p>Scan QR codes and earn points for proper disposal</p>
+                        </div>
+                        <div class="feature-card" onclick="showSection('medicine')">
+                            <div class="feature-icon purple">
+                                <i class="fas fa-pills"></i>
+                            </div>
+                            <h3>Medicine Exchange</h3>
+                            <p>Track expiry dates and exchange medicines safely</p>
+                        </div>
+                        <div class="feature-card" onclick="showSection('rewards')">
+                            <div class="feature-icon orange">
+                                <i class="fas fa-gift"></i>
+                            </div>
+                            <h3>Rewards & Points</h3>
+                            <p>Redeem points for exciting rewards and discounts</p>
+                        </div>
+                        <div class="feature-card" onclick="showSection('education')">
+                            <div class="feature-icon green">
+                                <i class="fas fa-book-open"></i>
+                            </div>
+                            <h3>Education Hub</h3>
+                            <p>Learn about proper waste disposal and environmental impact</p>
+                        </div>
+                        <div class="feature-card" onclick="showSection('analytics')">
+                            <div class="feature-icon indigo">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3>Analytics</h3>
+                            <p>View waste management statistics and insights</p>
+                        </div>
+                    </div>
+
+                    <!-- How It Works -->
+                    <div class="how-it-works">
+                        <h2>How It Works</h2>
+                        <div class="steps-grid">
+                            <div class="step">
+                                <div class="step-number green">1</div>
+                                <h3>Scan QR Code</h3>
+                                <p>Scan the QR code on sanitary products before disposal</p>
+                            </div>
+                            <div class="step">
+                                <div class="step-number blue">2</div>
+                                <h3>Dispose Properly</h3>
+                                <p>Use designated sanitary bins located in your area</p>
+                            </div>
+                            <div class="step">
+                                <div class="step-number orange">3</div>
+                                <h3>Earn Rewards</h3>
+                                <p>Get points instantly and redeem for exciting rewards</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="quick-actions">
+                        <button class="quick-action" onclick="showSection('help')">
+                            <i class="fas fa-question-circle"></i>
+                            <span>Help & FAQs</span>
+                        </button>
+                        <button class="quick-action" onclick="showSection('complaints')">
+                            <i class="fas fa-comment-alt"></i>
+                            <span>Complaints</span>
+                        </button>
+                        <button class="quick-action" onclick="showSection('notifications')">
+                            <i class="fas fa-bell"></i>
+                            <span>Notifications</span>
+                            <span class="notification-badge">3</span>
+                        </button>
+                        <button class="quick-action" onclick="showSection('education')">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Learn More</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Truck Tracking Section -->
+        <section id="truck-tracking" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2><i class="fas fa-truck"></i> Live Truck Tracking</h2>
+                    <p>Track waste collection trucks in your area in real-time</p>
+                </div>
+
+                <div class="search-container">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="societyInput" placeholder="Enter your society/area name">
+                        <button onclick="searchTrucks()" class="search-btn">Search</button>
+                    </div>
+                </div>
+
+                <div id="trucksContainer" class="trucks-container">
+                    <div class="empty-state">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>Enter your area to track trucks</h3>
+                        <p>We'll show you real-time locations and ETA of waste collection trucks for your area</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sanitary Section -->
+        <section id="sanitary" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2><i class="fas fa-hand-holding-heart"></i> Sanitary Disposal</h2>
+                    <p>Scan QR codes and earn points for responsible disposal</p>
+                </div>
+
+                <div class="sanitary-content">
+                    <div class="qr-scanner">
+                        <div class="scanner-box">
+                            <i class="fas fa-qrcode"></i>
+                            <h3>QR Code Scanner</h3>
+                            <p>Scan the QR code on your sanitary product packaging</p>
+                            <button class="scan-btn" onclick="startQRScanner('sanitary')">
+                                <i class="fas fa-camera"></i> Start Scanning
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="disposal-guidelines">
+                        <h3>Disposal Guidelines</h3>
+                        <div class="guidelines-grid">
+                            <div class="guideline-item">
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <h4>Scan Before Disposal</h4>
+                                    <p>Always scan the QR code before disposing</p>
+                                </div>
+                            </div>
+                            <div class="guideline-item">
+                                <i class="fas fa-trash-alt"></i>
+                                <div>
+                                    <h4>Use Designated Bins</h4>
+                                    <p>Dispose only in sanitary waste bins</p>
+                                </div>
+                            </div>
+                            <div class="guideline-item">
+                                <i class="fas fa-hand-paper"></i>
+                                <div>
+                                    <h4>Wrap Properly</h4>
+                                    <p>Wrap used products before disposal</p>
+                                </div>
+                            </div>
+                            <div class="guideline-item">
+                                <i class="fas fa-coins"></i>
+                                <div>
+                                    <h4>Earn Points</h4>
+                                    <p>Get reward points for each proper disposal</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="disposal-stats">
+                        <h3>Your Disposal History</h3>
+                        <div class="stats-cards">
+                            <div class="stat-card">
+                                <i class="fas fa-calendar-day"></i>
+                                <div>
+                                    <h4>This Month</h4>
+                                    <p>12 Disposals</p>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <i class="fas fa-coins"></i>
+                                <div>
+                                    <h4>Points Earned</h4>
+                                    <p>120 Points</p>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <i class="fas fa-leaf"></i>
+                                <div>
+                                    <h4>Environmental Impact</h4>
+                                    <p>2.4kg CO₂ Saved</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Medicine Section -->
+        <section id="medicine" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2><i class="fas fa-pills"></i> Medicine Management</h2>
+                    <p>Track expiry dates and exchange medicines safely</p>
+                </div>
+
+                <div class="medicine-content">
+                    <div class="action-cards">
+                        <div class="action-card">
+                            <i class="fas fa-qrcode"></i>
+                            <h3>Scan Medicine</h3>
+                            <p>Scan QR code to track expiry dates</p>
+                            <button class="action-btn" onclick="startQRScanner('medicine')">Scan Now</button>
+                        </div>
+                        <div class="action-card">
+                            <i class="fas fa-exchange-alt"></i>
+                            <h3>Exchange Medicine</h3>
+                            <p>Exchange unexpired medicines safely</p>
+                            <button class="action-btn" onclick="showExchangeForm()">Start Exchange</button>
+                        </div>
+                        <div class="action-card">
+                            <i class="fas fa-trash-alt"></i>
+                            <h3>Safe Disposal</h3>
+                            <p>Dispose expired medicines properly</p>
+                            <button class="action-btn" onclick="showDisposalForm()">Dispose Safely</button>
+                        </div>
+                    </div>
+
+                    <div class="medicine-tracker" id="medicineTracker">
+                        <h3>Your Medicine Cabinet</h3>
+                        <div class="medicine-list" id="medicineList">
+                            <div class="medicine-item">
+                                <div class="medicine-info">
+                                    <h4>Paracetamol 500mg</h4>
+                                    <p>Expires: 15 Dec 2024</p>
+                                </div>
+                                <div class="medicine-status valid">
+                                    <i class="fas fa-check-circle"></i> Valid
+                                </div>
+                            </div>
+                            <div class="medicine-item">
+                                <div class="medicine-info">
+                                    <h4>Cough Syrup</h4>
+                                    <p>Expires: 5 Feb 2024</p>
+                                </div>
+                                <div class="medicine-status expired">
+                                    <i class="fas fa-exclamation-triangle"></i> Expired
+                                </div>
+                            </div>
+                            <div class="medicine-item">
+                                <div class="medicine-info">
+                                    <h4>Vitamin D3</h4>
+                                    <p>Expires: 8 Mar 2025</p>
+                                </div>
+                                <div class="medicine-status expiring">
+                                    <i class="fas fa-clock"></i> Expiring Soon
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pharmacy-partners">
+                        <h3>Partner Pharmacies</h3>
+                        <div class="partners-grid">
+                            <div class="partner-card">
+                                <i class="fas fa-store"></i>
+                                <h4>Apollo Pharmacy</h4>
+                                <p>2.1 km away</p>
+                                <button class="partner-btn">Visit Store</button>
+                            </div>
+                            <div class="partner-card">
+                                <i class="fas fa-store"></i>
+                                <h4>MedPlus</h4>
+                                <p>1.8 km away</p>
+                                <button class="partner-btn">Visit Store</button>
+                            </div>
+                            <div class="partner-card">
+                                <i class="fas fa-store"></i>
+                                <h4>Wellness Forever</h4>
+                                <p>3.2 km away</p>
+                                <button class="partner-btn">Visit Store</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rewards Section -->
+        <section id="rewards" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2><i class="fas fa-gift"></i> Rewards & Points</h2>
+                    <p>Redeem your points for exciting rewards and discounts</p>
+                </div>
+
+                <div class="rewards-summary">
+                    <div class="points-card">
+                        <div class="points-display">
+                            <i class="fas fa-coins"></i>
+                            <div>
+                                <h3 id="totalPoints">250</h3>
+                                <p>Total Points</p>
+                            </div>
+                        </div>
+                        <div class="points-breakdown">
+                            <div class="breakdown-item">
+                                <span>This Month:</span>
+                                <span>120 pts</span>
+                            </div>
+                            <div class="breakdown-item">
+                                <span>Last Earned:</span>
+                                <span>10 pts (2 hours ago)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rewards-content">
+                    <div class="rewards-tabs">
+                        <button class="tab-btn active" onclick="showRewardsTab('available')">Available Rewards</button>
+                        <button class="tab-btn" onclick="showRewardsTab('redeemed')">My Rewards</button>
+                        <button class="tab-btn" onclick="showRewardsTab('history')">History</button>
+                    </div>
+
+                    <div id="availableRewards" class="rewards-tab active">
+                        <div class="rewards-grid">
+                            <div class="reward-card">
+                                <div class="reward-image">
+                                    <i class="fas fa-coffee"></i>
+                                </div>
+                                <h4>Coffee Voucher</h4>
+                                <p>Free coffee at partner cafes</p>
+                                <div class="reward-points">50 Points</div>
+                                <button class="redeem-btn" onclick="redeemReward('coffee', 50)">Redeem</button>
+                            </div>
+                            <div class="reward-card">
+                                <div class="reward-image">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </div>
+                                <h4>10% Shopping Discount</h4>
+                                <p>Discount at partner stores</p>
+                                <div class="reward-points">100 Points</div>
+                                <button class="redeem-btn" onclick="redeemReward('shopping', 100)">Redeem</button>
+                            </div>
+                            <div class="reward-card">
+                                <div class="reward-image">
+                                    <i class="fas fa-utensils"></i>
+                                </div>
+                                <h4>Food Delivery Coupon</h4>
+                                <p>₹100 off on food delivery</p>
+                                <div class="reward-points">150 Points</div>
+                                <button class="redeem-btn" onclick="redeemReward('food', 150)">Redeem</button>
+                            </div>
+                            <div class="reward-card">
+                                <div class="reward-image">
+                                    <i class="fas fa-seedling"></i>
+                                </div>
+                                <h4>Plant Sapling</h4>
+                                <p>Free plant sapling delivery</p>
+                                <div class="reward-points">200 Points</div>
+                                <button class="redeem-btn" onclick="redeemReward('plant', 200)">Redeem</button>
+                            </div>
+                            <div class="reward-card">
+                                <div class="reward-image">
+                                    <i class="fas fa-spa"></i>
+                                </div>
+                                <h4>Spa Voucher</h4>
+                                <p>Relaxing spa session</p>
+                                <div class="reward-points">300 Points</div>
+                                <button class="redeem-btn insufficient" disabled>Insufficient Points</button>
+                            </div>
+                            <div class="reward-card">
+                                <div class="reward-image">
+                                    <i class="fas fa-mobile-alt"></i>
+                                </div>
+                                <h4>Mobile Recharge</h4>
+                                <p>₹50 mobile recharge</p>
+                                <div class="reward-points">80 Points</div>
+                                <button class="redeem-btn" onclick="redeemReward('recharge', 80)">Redeem</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="redeemedRewards" class="rewards-tab">
+                        <div class="redeemed-list">
+                            <div class="redeemed-item">
+                                <div class="redeemed-info">
+                                    <i class="fas fa-coffee"></i>
+                                    <div>
+                                        <h4>Coffee Voucher</h4>
+                                        <p>Redeemed on 10 Jan 2024</p>
+                                    </div>
+                                </div>
+                                <div class="voucher-code">
+                                    <span>Code: COFFEE123</span>
+                                    <button onclick="copyCode('COFFEE123')">Copy</button>
+                                </div>
+                            </div>
+                            <div class="redeemed-item">
+                                <div class="redeemed-info">
+                                    <i class="fas fa-mobile-alt"></i>
+                                    <div>
+                                        <h4>Mobile Recharge</h4>
+                                        <p>Redeemed on 5 Jan 2024</p>
+                                    </div>
+                                </div>
+                                <div class="voucher-code">
+                                    <span>Used</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="rewardsHistory" class="rewards-tab">
+                        <div class="history-list">
+                            <div class="history-item earn">
+                                <i class="fas fa-plus-circle"></i>
+                                <div>
+                                    <h4>Points Earned</h4>
+                                    <p>Sanitary disposal - 2 hours ago</p>
+                                </div>
+                                <span class="points">+10</span>
+                            </div>
+                            <div class="history-item redeem">
+                                <i class="fas fa-minus-circle"></i>
+                                <div>
+                                    <h4>Coffee Voucher</h4>
+                                    <p>Redeemed - 3 days ago</p>
+                                </div>
+                                <span class="points">-50</span>
+                            </div>
+                            <div class="history-item earn">
+                                <i class="fas fa-plus-circle"></i>
+                                <div>
+                                    <h4>Points Earned</h4>
+                                    <p>Medicine disposal - 5 days ago</p>
+                                </div>
+                                <span class="points">+15</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2><i class="fas fa-graduation-cap"></i> Education Hub</h2>
+                    <p>Learn about proper waste disposal and environmental impact</p>
+                </div>
+
+                <div class="education-content">
+                    <div class="topics-grid">
+                        <div class="topic-card" onclick="showEducationTopic('sanitary-waste')">
+                            <div class="topic-icon">
+                                <i class="fas fa-hand-holding-heart"></i>
+                            </div>
+                            <h3>Sanitary Waste Management</h3>
+                            <p>Learn about proper disposal of sanitary products</p>
+                        </div>
+                        <div class="topic-card" onclick="showEducationTopic('environmental-impact')">
+                            <div class="topic-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <h3>Environmental Impact</h3>
+                            <p>Understanding how waste affects our planet</p>
+                        </div>
+                        <div class="topic-card" onclick="showEducationTopic('health-hygiene')">
+                            <div class="topic-icon">
+                                <i class="fas fa-heartbeat"></i>
+                            </div>
+                            <h3>Health & Hygiene</h3>
+                            <p>Health risks of improper waste disposal</p>
+                        </div>
+                        <div class="topic-card" onclick="showEducationTopic('recycling')">
+                            <div class="topic-icon">
+                                <i class="fas fa-recycle"></i>
+                            </div>
+                            <h3>Recycling & Reuse</h3>
+                            <p>How to reduce, reuse, and recycle effectively</p>
+                        </div>
+                        <div class="topic-card" onclick="showEducationTopic('government-policies')">
+                            <div class="topic-icon">
+                                <i class="fas fa-balance-scale"></i>
+                            </div>
+                            <h3>Government Policies</h3>
+                            <p>Understanding waste management regulations</p>
+                        </div>
+                        <div class="topic-card" onclick="showEducationTopic('community-action')">
+                            <div class="topic-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3>Community Action</h3>
+                            <p>How communities can make a difference</p>
+                        </div>
+                    </div>
+
+                    <div class="featured-content">
+                        <div class="content-section">
+                            <h3>Featured Articles</h3>
+                            <div class="articles-list">
+                                <article class="article-item" onclick="readArticle('menstrual-hygiene')">
+                                    <div class="article-image">
+                                        <i class="fas fa-newspaper"></i>
+                                    </div>
+                                    <div class="article-content">
+                                        <h4>Breaking Menstrual Hygiene Taboos</h4>
+                                        <p>How proper education can change societal attitudes towards menstrual hygiene.</p>
+                                        <span class="read-time">5 min read</span>
+                                    </div>
+                                </article>
+                                <article class="article-item" onclick="readArticle('plastic-pollution')">
+                                    <div class="article-image">
+                                        <i class="fas fa-newspaper"></i>
+                                    </div>
+                                    <div class="article-content">
+                                        <h4>The Hidden Impact of Plastic Pollution</h4>
+                                        <p>Understanding how improper disposal affects marine life and ecosystems.</p>
+                                        <span class="read-time">8 min read</span>
+                                    </div>
+                                </article>
+                                <article class="article-item" onclick="readArticle('sustainable-periods')">
+                                    <div class="article-image">
+                                        <i class="fas fa-newspaper"></i>
+                                    </div>
+                                    <div class="article-content">
+                                        <h4>Sustainable Period Products Guide</h4>
+                                        <p>Exploring eco-friendly alternatives to conventional sanitary products.</p>
+                                        <span class="read-time">6 min read</span>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+
+                        <div class="content-section">
+                            <h3>Educational Videos</h3>
+                            <div class="videos-grid">
+                                <div class="video-card" onclick="playVideo('proper-disposal')">
+                                    <div class="video-thumbnail">
+                                        <i class="fas fa-play-circle"></i>
+                                    </div>
+                                    <h4>Proper Disposal Techniques</h4>
+                                    <p>Learn the right way to dispose of sanitary waste</p>
+                                </div>
+                                <div class="video-card" onclick="playVideo('qr-scanning')">
+                                    <div class="video-thumbnail">
+                                        <i class="fas fa-play-circle"></i>
+                                    </div>
+                                    <h4>How to Use QR Scanning</h4>
+                                    <p>Step-by-step guide to using our QR system</p>
+                                </div>
+                                <div class="video-card" onclick="playVideo('environmental-benefits')">
+                                    <div class="video-thumbnail">
+                                        <i class="fas fa-play-circle"></i>
+                                    </div>
+                                    <h4>Environmental Benefits</h4>
+                                    <p>See the positive impact of proper waste management</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Notifications Section -->
+        <section id="notifications" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2><i class="fas fa-bell"></i> Notifications & Reminders</h2>
+                    <p>Stay updated with pickup schedules, reminders, and rewards</p>
+                </div>
+
+                <div class="notifications-content">
+                    <div class="notification-tabs">
+                        <button class="tab-btn active" onclick="showNotificationTab('all')">All (3)</button>
+                        <button class="tab-btn" onclick="showNotificationTab('pickup')">Pickup</button>
+                        <button class="tab-btn" onclick="showNotificationTab('rewards')">Rewards</button>
+                        <button class="tab-btn" onclick="showNotificationTab('education')">Tips</button>
+                    </div>
+
+                    <div class="notifications-list" id="notificationsList">
+                        <div class="notification-item unread pickup">
+                            <div class="notification-icon">
+                                <i class="fas fa-truck"></i>
+                            </div>
+                            <div class="notification-content">
+                                <h4>Pickup Reminder</h4>
+                                <p>Waste collection truck will arrive at Green Valley Apartments in 30 minutes</p>
+                                <span class="notification-time">Just now</span>
+                            </div>
+                            <button class="mark-read-btn" onclick="markAsRead(this)">
+                                <i class="fas fa-check"></i>
+                            </button>
+                        </div>
+
+                        <div class="notification-item unread rewards">
+                            <div class="notification-icon">
+                                <i class="fas fa-gift"></i>
+                            </div>
+                            <div class="notification-content">
+                                <h4>New Reward Available!</h4>
+                                <p>You can now redeem a coffee voucher with your points. Check out the rewards section!</p>
+                                <span class="notification-time">2 hours ago</span>
+                            </div>
+                            <button class="mark-read-btn" onclick="markAsRead(this)">
+                                <i class="fas fa-check"></i>
+                            </button>
+                        </div>
+
+                        <div class="notification-item unread education">
+                            <div class="notification-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div class="notification-content">
+                                <h4>Daily Tip</h4>
+                                <p>Did you know? Proper disposal of one sanitary pad can save up to 200g of CO₂ emissions!</p>
+                                <span class="notification-time">5 hours ago</span>
+                            </div>
+                            <button class="mark-read-btn" onclick="markAsRead(this)">
+                                <i class="fas fa-check"></i>
+                            </button>
+                        </div>
+
+                        <div class="notification-item read pickup">
+                            <div class="notification-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="notification-content">
+                                <h4>Pickup Completed</h4>
+                                <p>Waste collection completed for your area. Thank you for your participation!</p>
+                                <span class="notification-time">1 day ago</span>
+                            </div>
+                        </div>
+
+                        <div class="notification-item read rewards">
+                            <div class="notification-icon">
+                                <i class="fas fa-coins"></i>
+                            </div>
+                            <div class="notification-content">
+                                <h4>Points Earned</h4>
+                                <p>You earned 10 points for proper sanitary waste disposal. Keep it up!</p>
+                                <span class="notification-time">2 days ago</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="notification-settings">
+                        <h3>Notification Preferences</h3>
+                        <div class="settings-list">
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <h4>Pickup Reminders</h4>
+                                    <p>Get notified about upcoming waste collection</p>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <h4>Reward Updates</h4>
+                                    <p>Be the first to know about new rewards</p>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <h4>Educational Tips</h4>
+                                    <p>Receive daily tips about waste management</p>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <h4>Points Summary</h4>
+                                    <p>Weekly summary of your earned points</p>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Analytics Section -->
+        <section id="analytics" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2><i class="fas fa-chart-line"></i> Analytics & Dashboard</h2>
+                    <p>View comprehensive waste management statistics and insights</p>
+                </div>
+
+                <div class="analytics-content">
+                    <div class="dashboard-metrics">
+                        <div class="metric-card">
+                            <div class="metric-icon green">
+                                <i class="fas fa-trash-alt"></i>
+                            </div>
+                            <div class="metric-data">
+                                <h3>12.5K kg</h3>
+                                <p>Total Waste Collected</p>
+                                <span class="metric-change positive">+15% from last month</span>
+                            </div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-icon blue">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="metric-data">
+                                <h3>2,847</h3>
+                                <p>Active Users</p>
+                                <span class="metric-change positive">+8% from last month</span>
+                            </div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-icon orange">
+                                <i class="fas fa-coins"></i>
+                            </div>
+                            <div class="metric-data">
+                                <h3>45.2K</h3>
+                                <p>Points Distributed</p>
+                                <span class="metric-change positive">+12% from last month</span>
+                            </div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-icon purple">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <div class="metric-data">
+                                <h3>8.7 tons</h3>
+                                <p>CO₂ Emissions Saved</p>
+                                <span class="metric-change positive">+20% from last month</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="charts-grid">
+                        <div class="chart-card">
+                            <h3>Waste Collection Trends</h3>
+                            <div class="chart-placeholder">
+                                <canvas id="wasteChart" width="400" height="200"></canvas>
+                            </div>
+                        </div>
+                        <div class="chart-card">
+                            <h3>User Participation</h3>
+                            <div class="chart-placeholder">
+                                <canvas id="participationChart" width="400" height="200"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="detailed-stats">
+                        <div class="stats-section">
+                            <h3>Waste Type Distribution</h3>
+                            <div class="waste-types">
+                                <div class="waste-type-item">
+                                    <div class="waste-type-info">
+                                        <h4>Sanitary Waste</h4>
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" style="width: 65%"></div>
+                                        </div>
+                                    </div>
+                                    <span class="percentage">65%</span>
+                                </div>
+                                <div class="waste-type-item">
+                                    <div class="waste-type-info">
+                                        <h4>General Waste</h4>
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" style="width: 25%"></div>
+                                        </div>
+                                    </div>
+                                    <span class="percentage">25%</span>
+                                </div>
+                                <div class="waste-type-item">
+                                    <div class="waste-type-info">
+                                        <h4>Medical Waste</h4>
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" style="width: 10%"></div>
+                                        </div>
+                                    </div>
+                                    <span class="percentage">10%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="stats-section">
+                            <h3>Top Performing Areas</h3>
+                            <div class="performance-list">
+                                <div class="performance-item">
+                                    <div class="rank">1</div>
+                                    <div class="area-info">
+                                        <h4>Green Valley Apartments</h4>
+                                        <p>98% participation rate</p>
+                                    </div>
+                                    <div class="performance-score">98%</div>
+                                </div>
+                                <div class="performance-item">
+                                    <div class="rank">2</div>
+                                    <div class="area-info">
+                                        <h4>Paradise Society</h4>
+                                        <p>92% participation rate</p>
+                                    </div>
+                                    <div class="performance-score">92%</div>
+                                </div>
+                                <div class="performance-item">
+                                    <div class="rank">3</div>
+                                    <div class="area-info">
+                                        <h4>Sunshine Heights</h4>
+                                        <p>87% participation rate</p>
+                                    </div>
+                                    <div class="performance-score">87%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="insights-section">
+                        <h3>Key Insights</h3>
+                        <div class="insights-grid">
+                            <div class="insight-card">
+                                <i class="fas fa-trend-up"></i>
+                                <h4>Increasing Participation</h4>
+                                <p>User engagement has increased by 23% this quarter, showing growing awareness about proper waste disposal.</p>
+                            </div>
+                            <div class="insight-card">
+                                <i class="fas fa-clock"></i>
+                                <h4>Peak Collection Times</h4>
+                                <p>Most waste collections happen between 10 AM - 2 PM, with highest efficiency during these hours.</p>
+                            </div>
+                            <div class="insight-card">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <h4>Geographic Patterns</h4>
+                                <p>Residential areas show 40% higher participation rates compared to commercial zones.</p>
+                            </div>
+                            <div class="insight-card">
+                                <i class="fas fa-award"></i>
+                                <h4>Reward Impact</h4>
+                                <p>Users who redeem rewards are 60% more likely to continue proper disposal practices.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Help Section -->
+        <section id="help" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2><i class="fas fa-question-circle"></i> Help & Support</h2>
+                    <p>Get assistance with using the app and find answers to common questions</p>
+                </div>
+
+                <div class="help-content">
+                    <div class="help-search">
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Search for help topics..." onkeyup="searchHelp(this.value)">
+                        </div>
+                    </div>
+
+                    <div class="help-categories">
+                        <div class="help-category" onclick="showHelpCategory('getting-started')">
+                            <i class="fas fa-play-circle"></i>
+                            <h3>Getting Started</h3>
+                            <p>Learn the basics of using EcoWaste</p>
+                        </div>
+                        <div class="help-category" onclick="showHelpCategory('qr-scanning')">
+                            <i class="fas fa-qrcode"></i>
+                            <h3>QR Code Scanning</h3>
+                            <p>How to scan QR codes for disposal tracking</p>
+                        </div>
+                        <div class="help-category" onclick="showHelpCategory('rewards')">
+                            <i class="fas fa-gift"></i>
+                            <h3>Rewards & Points</h3>
+                            <p>Understanding the reward system</p>
+                        </div>
+                        <div class="help-category" onclick="showHelpCategory('truck-tracking')">
+                            <i class="fas fa-truck"></i>
+                            <h3>Truck Tracking</h3>
+                            <p>How to track waste collection trucks</p>
+                        </div>
+                        <div class="help-category" onclick="showHelpCategory('technical')">
+                            <i class="fas fa-cog"></i>
+                            <h3>Technical Issues</h3>
+                            <p>Troubleshooting common problems</p>
+                        </div>
+                        <div class="help-category" onclick="showHelpCategory('account')">
+                            <i class="fas fa-user"></i>
+                            <h3>Account Management</h3>
+                            <p>Managing your profile and settings</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-section">
+                        <h3>Frequently Asked Questions</h3>
+                        <div class="faq-list" id="faqList">
+                            <div class="faq-item">
+                                <div class="faq-question" onclick="toggleFAQ(this)">
+                                    <h4>How do I earn points for waste disposal?</h4>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>To earn points, scan the QR code on your sanitary product packaging before disposal. Then dispose of the product in designated sanitary waste bins. You'll automatically receive points in your account within a few minutes.</p>
+                                </div>
+                            </div>
+                            <div class="faq-item">
+                                <div class="faq-question" onclick="toggleFAQ(this)">
+                                    <h4>Where can I find sanitary waste bins?</h4>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Sanitary waste bins are located in schools, colleges, hospitals, shopping malls, and public spaces. Use the truck tracking feature to find collection points in your area.</p>
+                                </div>
+                            </div>
+                            <div class="faq-item">
+                                <div class="faq-question" onclick="toggleFAQ(this)">
+                                    <h4>How can I redeem my reward points?</h4>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Go to the Rewards section, browse available rewards, and click 'Redeem' on any reward you can afford. You'll receive a voucher code that can be used at partner stores.</p>
+                                </div>
+                            </div>
+                            <div class="faq-item">
+                                <div class="faq-question" onclick="toggleFAQ(this)">
+                                    <h4>What types of medicine can be exchanged?</h4>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>You can exchange unexpired prescription and over-the-counter medicines. The medicine must be in original packaging and not expired. Check with partner pharmacies for specific guidelines.</p>
+                                </div>
+                            </div>
+                            <div class="faq-item">
+                                <div class="faq-question" onclick="toggleFAQ(this)">
+                                    <h4>How accurate is the truck tracking?</h4>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Our truck tracking uses GPS technology and is updated in real-time. The ETA provided is accurate within 5-10 minutes depending on traffic conditions.</p>
+                                </div>
+                            </div>
+                            <div class="faq-item">
+                                <div class="faq-question" onclick="toggleFAQ(this)">
+                                    <h4>Can I use the app without creating an account?</h4>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>While you can browse educational content without an account, you need to be logged in to earn points, track disposals, redeem rewards, and access personalized features.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-support">
+                        <h3>Still Need Help?</h3>
+                        <div class="contact-options">
+                            <div class="contact-option">
+                                <i class="fas fa-phone"></i>
+                                <h4>Call Support</h4>
+                                <p>1800-123-WASTE</p>
+                                <span>Available 24/7</span>
+                            </div>
+                            <div class="contact-option">
+                                <i class="fas fa-envelope"></i>
+                                <h4>Email Support</h4>
+                                <p>support@ecowaste.com</p>
+                                <span>Response within 24 hours</span>
+                            </div>
+                            <div class="contact-option">
+                                <i class="fas fa-comment"></i>
+                                <h4>Live Chat</h4>
+                                <p>Chat with our team</p>
+                                <button class="chat-btn" onclick="startChat()">Start Chat</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="app-guides">
+                        <h3>Step-by-Step Guides</h3>
+                        <div class="guides-grid">
+                            <div class="guide-card" onclick="showGuide('first-disposal')">
+                                <i class="fas fa-play-circle"></i>
+                                <h4>Your First Disposal</h4>
+                                <p>Complete guide for new users</p>
+                            </div>
+                            <div class="guide-card" onclick="showGuide('qr-scanning-guide')">
+                                <i class="fas fa-camera"></i>
+                                <h4>QR Scanning Tutorial</h4>
+                                <p>Master the QR scanning feature</p>
+                            </div>
+                            <div class="guide-card" onclick="showGuide('rewards-guide')">
+                                <i class="fas fa-star"></i>
+                                <h4>Maximizing Rewards</h4>
+                                <p>Tips to earn more points</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Complaints Section -->
+        <section id="complaints" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2><i class="fas fa-comment-alt"></i> Complaints & Feedback</h2>
+                    <p>Report issues and help us improve our waste management services</p>
+                </div>
+
+                <div class="complaints-content">
+                    <div class="complaint-form-section">
+                        <h3>Submit a Complaint</h3>
+                        <form class="complaint-form" onsubmit="submitComplaint(event)">
+                            <div class="form-group">
+                                <label>Complaint Type</label>
+                                <select id="complaintType" onchange="handleComplaintTypeChange()">
+                                    <option value="">Select complaint type</option>
+                                    <option value="truck_delay">Truck not arriving</option>
+                                    <option value="bin_overflow">Bin overflow</option>
+                                    <option value="improper_disposal">Improper disposal</option>
+                                    <option value="delayed_collection">Delayed collection</option>
+                                    <option value="app_issue">App technical issue</option>
+                                    <option value="reward_issue">Reward/Points issue</option>
+                                    <option value="custom">Other (please specify)</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Priority Level</label>
+                                <div class="priority-options">
+                                    <label class="priority-option">
+                                        <input type="radio" name="priority" value="low" checked>
+                                        <span class="priority-label low">Low</span>
+                                    </label>
+                                    <label class="priority-option">
+                                        <input type="radio" name="priority" value="medium">
+                                        <span class="priority-label medium">Medium</span>
+                                    </label>
+                                    <label class="priority-option">
+                                        <input type="radio" name="priority" value="high">
+                                        <span class="priority-label high">High</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Location/Society</label>
+                                <input type="text" id="complaintLocation" placeholder="Enter your area or society name">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Detailed Description</label>
+                                <textarea id="complaintDescription" rows="4" placeholder="Please provide detailed information about your complaint..."></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Contact Information</label>
+                                <input type="tel" id="complaintPhone" placeholder="Your phone number (optional)">
+                            </div>
+
+                            <button type="submit" class="submit-btn">
+                                <i class="fas fa-paper-plane"></i>
+                                Submit Complaint
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="quick-complaints">
+                        <h3>Quick Complaints</h3>
+                        <div class="quick-complaint-buttons">
+                            <button class="quick-complaint-btn" onclick="quickComplaint('truck_delay')">
+                                <i class="fas fa-clock"></i>
+                                Truck Delayed
+                            </button>
+                            <button class="quick-complaint-btn" onclick="quickComplaint('bin_overflow')">
+                                <i class="fas fa-trash-alt"></i>
+                                Bin Overflow
+                            </button>
+                            <button class="quick-complaint-btn" onclick="quickComplaint('app_issue')">
+                                <i class="fas fa-mobile-alt"></i>
+                                App Issue
+                            </button>
+                            <button class="quick-complaint-btn" onclick="quickComplaint('improper_disposal')">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                Improper Disposal
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="complaint-status">
+                        <h3>Your Complaints</h3>
+                        <div class="complaints-list" id="complaintsList">
+                            <div class="complaint-item">
+                                <div class="complaint-header">
+                                    <div class="complaint-info">
+                                        <h4>Truck Delay Issue</h4>
+                                        <p class="complaint-id">ID: #C001</p>
+                                    </div>
+                                    <div class="complaint-status-badge pending">
+                                        <i class="fas fa-clock"></i>
+                                        Pending
+                                    </div>
+                                </div>
+                                <div class="complaint-details">
+                                    <p>Collection truck didn't arrive at scheduled time in Green Valley Apartments</p>
+                                    <div class="complaint-meta">
+                                        <span><i class="fas fa-calendar"></i> Submitted: 2 hours ago</span>
+                                        <span><i class="fas fa-map-marker-alt"></i> Green Valley Apartments</span>
+                                        <span><i class="fas fa-flag"></i> Priority: Medium</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="complaint-item">
+                                <div class="complaint-header">
+                                    <div class="complaint-info">
+                                        <h4>Bin Overflow</h4>
+                                        <p class="complaint-id">ID: #C002</p>
+                                    </div>
+                                    <div class="complaint-status-badge in_progress">
+                                        <i class="fas fa-cog"></i>
+                                        In Progress
+                                    </div>
+                                </div>
+                                <div class="complaint-details">
+                                    <p>Sanitary waste bin is overflowing at Central Mall, Sector 12</p>
+                                    <div class="complaint-meta">
+                                        <span><i class="fas fa-calendar"></i> Submitted: 1 day ago</span>
+                                        <span><i class="fas fa-map-marker-alt"></i> Central Mall</span>
+                                        <span><i class="fas fa-flag"></i> Priority: High</span>
+                                    </div>
+                                    <div class="complaint-update">
+                                        <p><strong>Update:</strong> Cleaning team dispatched to location. Expected resolution: 2 hours</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="complaint-item">
+                                <div class="complaint-header">
+                                    <div class="complaint-info">
+                                        <h4>App Technical Issue</h4>
+                                        <p class="complaint-id">ID: #C003</p>
+                                    </div>
+                                    <div class="complaint-status-badge resolved">
+                                        <i class="fas fa-check-circle"></i>
+                                        Resolved
+                                    </div>
+                                </div>
+                                <div class="complaint-details">
+                                    <p>QR scanner not working properly on Android device</p>
+                                    <div class="complaint-meta">
+                                        <span><i class="fas fa-calendar"></i> Submitted: 3 days ago</span>
+                                        <span><i class="fas fa-map-marker-alt"></i> N/A</span>
+                                        <span><i class="fas fa-flag"></i> Priority: Low</span>
+                                    </div>
+                                    <div class="complaint-resolution">
+                                        <p><strong>Resolution:</strong> Issue fixed in app update v2.1.3. Please update the app.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="feedback-section">
+                        <h3>General Feedback</h3>
+                        <div class="feedback-form">
+                            <textarea placeholder="Share your suggestions to help us improve our services..." rows="3"></textarea>
+                            <button class="feedback-btn" onclick="submitFeedback()">
+                                <i class="fas fa-heart"></i>
+                                Send Feedback
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Welcome to EcoWaste</h2>
+                <span class="close" onclick="closeLogin()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="auth-tabs">
+                    <button class="auth-tab active" onclick="showAuthTab('login')">Login</button>
+                    <button class="auth-tab" onclick="showAuthTab('register')">Register</button>
+                </div>
+
+                <div id="loginForm" class="auth-form active">
+                    <form onsubmit="handleLogin(event)">
+                        <div class="form-group">
+                            <input type="email" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" placeholder="Password" required>
+                        </div>
+                        <button type="submit" class="auth-btn">Login</button>
+                    </form>
+                </div>
+
+                <div id="registerForm" class="auth-form">
+                    <form onsubmit="handleRegister(event)">
+                        <div class="form-group">
+                            <input type="text" placeholder="Full Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" placeholder="Phone Number" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Society/Area" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" placeholder="Password" required>
+                        </div>
+                        <button type="submit" class="auth-btn">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- QR Scanner Modal -->
+    <div id="qrModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>QR Code Scanner</h2>
+                <span class="close" onclick="closeQRScanner()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="qr-scanner-interface">
+                    <div class="scanner-frame">
+                        <div class="scanner-overlay">
+                            <div class="scanner-box-border"></div>
+                        </div>
+                        <div class="scanner-instructions">
+                            <p>Position the QR code within the frame</p>
+                        </div>
+                    </div>
+                    <button class="scanner-btn" onclick="simulateQRScan()">
+                        <i class="fas fa-camera"></i>
+                        Simulate Scan
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal">
+        <div class="modal-content success">
+            <div class="modal-body">
+                <div class="success-animation">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h3 id="successTitle">Success!</h3>
+                <p id="successMessage">Operation completed successfully</p>
+                <button class="success-btn" onclick="closeSuccessModal()">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="SIH.js"></script>
+</body>
+</html>
