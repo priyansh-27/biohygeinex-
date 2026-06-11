@@ -1,4 +1,4 @@
-# BioHygineX
+# BioHygeineX
 
 Turning responsible waste disposal into a rewarding habit.
 
