@@ -59,23 +59,6 @@ https://biohygienex6.netlify.app/
 
 ---
 
- 📸 SCREENSHOT
-
-### Home Page
-![Home Page](./screenshots/home.png)
-
-### Truck Tracking
-![Truck Tracking](./screenshots/truck-tracking.png)
-
-### Sanitary Waste Disposal
-![Sanitary Disposal](./screenshots/sanitary-disposal.png)
-
-### Medicine Management
-![Medicine Management](./screenshots/medicine-management.png)
-
-### Rewards System
-![Rewards](./screenshots/rewards.png)
-
 ## Vision
 
 To build cleaner communities by combining technology, awareness, and incentives for sustainable waste management.
